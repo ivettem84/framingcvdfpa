@@ -35,23 +35,26 @@ tic;
 
 tiempo = toc/60; 
 tiempos = toc; 
+termina=now;
+hora1=datestr(termina-comienza,'HH:MM:SS');
 arquitec(k1).nn = bestnn;
 arquitec(k1).best = fmin;
 arquitec(k1).capas = best;
 arquitec(k1).tiempo = tiempo;
+arquitec(k1).hora1 = hora1;
 arquitec(k1).n= n;
 arquitec(k1).p = p;
 arquitec(k1).N_iter = N_iter;
 arquitec(k1).bestnnall = bestnnall;
-save('redescvdFPA1009.mat','arquitec');
+save('redesECcvdFPA2409.mat','arquitec');
 
 
-termina=now;%%%%%%%%% TIEMPO FINAL
-%fprintf(errord,['\n----------------------------------------\n\n']);
+%%%%%%%%% TIEMPO FINAL
+%fprintf(errord,['\n--------------------------------------\n\n']);
 %fprintf(errord,['Best Solution:' num2str(bestX) ' fmin=',num2str(fMin) '   BSA time:', datestr(termina-comienza,'HH:MM:SS') '\n']);
-disp(['Total number of evaluations: ',num2str(N_iter*n)]);
-disp(['Best solution=',num2str(best),'   fmin=',num2str(fmin) '   FPA time:', datestr(termina-comienza,'HH:MM:SS')]);
-
+% disp(['Total number of evaluations: ',num2str(N_iter*n)]);
+% disp(['Best solution=',num2str(best),'   fmin=',num2str(fmin) '   FPA time:', datestr(termina-comienza,'HH:MM:SS')]);
+disp(['Fin de experimento: ',num2str(k1)]);
 %filename = [ 'nnBSA1409-' num2str(k1) ];
 %save(filename)
 

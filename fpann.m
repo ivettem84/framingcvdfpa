@@ -84,7 +84,7 @@ for t=1:N_iter
     arquitec(t).best = fmin;
     arquitec(t).capas = best;
     arquitec(t).t = t;
-    save('redescvd1FPA1009.mat','arquitec')
+    save('redesECcvd1FPA24091.mat','arquitec')
 
 end
 % 

@@ -13,7 +13,7 @@ load pac500train.dat
 load pac500targ.dat
 
 xx= pac500train;
-%ta= pacitar1;
+ta= pac500targ;
 
 sexo = xx(1,:);
 edad = xx(2,:)/100;
@@ -24,24 +24,26 @@ imc= xx(6,:)/100;
 trata=xx(7,:);
 
 x1=[sexo; edad; sys; fuma; diab; imc; trata];
-ta1=pac500targ/100;
+rreal=ta(2,:);
+
+ta1=rreal/100;
 
 
-disp('Iniciando Entrenamiento...');
+%disp('Iniciando Entrenamiento...');
           
           %%%%%%%%%%%%%%%%%%%%%%%%%%%% PRIMER MODULO %%%%%%%%%%%%%%%%%%%%%%%%%%
         
-          disp('Inicia Modulo 1...');
+          %disp('Inicia Modulo 1...');
 %           
 %           if(Chrom(i,1)==1)%Monolitica
 %              display('Red monolitica en construccion')
 %           elseif (Chrom(i,1)==2) % Modular
               if(Sol(1,1)==1)% 1 modulo y  1 capa
-                  net=newff(minmax(x1),[Sol(1,2),2],{'tansig','purelin','logsig','logsig'},'trainlm');
+                  net=newff(minmax(x1),[Sol(1,2),1],{'tansig','purelin','logsig','logsig'},'trainlm');
               end
               
               if(Sol(1,1)==2)% 1 modulo y  2 capa
-                  net=newff(minmax(x1),[Sol(1,2),Sol(1,3),2],{'tansig','tansig','purelin','purelin','logsig','logsig'},'trainlm');
+                  net=newff(minmax(x1),[Sol(1,2),Sol(1,3),1],{'tansig','tansig','purelin','purelin','logsig','logsig'},'trainlm');
               end
               
 
@@ -54,7 +56,7 @@ disp('Iniciando Entrenamiento...');
               net.trainParam.showWindow=0;
               [net,tr1]=train(net,x1,ta1);
           
-          disp('Fin del entrenamiento de la Red monolitica');
+          %disp('Fin del entrenamiento de la Red monolitica');
           
    fnob2fpa();
 

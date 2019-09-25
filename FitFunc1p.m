@@ -8,10 +8,10 @@ warning off
 % ta=pacientestarg;
 
 
-load pacicvdtrn.dat
-load pacicvdtarg.dat
+load pac500train.dat;
+load pac500targ.dat;
 
-xx= pacicvdtrn;
+xx= pac500train;
 %ta= pacitar1;
 
 sexo = xx(1,:);
@@ -23,7 +23,7 @@ imc= xx(6,:)/100;
 trata=xx(7,:);
 
 x1=[sexo; edad; sys; fuma; diab; imc; trata];
-ta1=pacicvdtarg/100;
+ta1=pac500targ/100;
 
 
 disp('Iniciando Entrenamiento...');

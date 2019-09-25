@@ -7,6 +7,7 @@ load pac50trn.dat
 load pac50tst.dat
 
 x1=pac50trn;
+%ta= pac50tst;
 
 sexo = x1(1,:);
 edad = x1(2,:)/100;
@@ -19,13 +20,16 @@ trata=x1(7,:);
 pn2=[sexo; edad; sys; fuma; diab; imc; trata];
 
 rtarg=pac50tst;
-num=length(rtarg);
+rtarg1=pac50tst(2,:);
+
+
+num=length(rtarg1);
 
 %SIMULANDO DATOS PRONOSTICADOS
 entr=sim(net,pn2);
 sim1 = entr*100;
 %sim2=round(sim1);
 
-errorestfpa= mymse(rtarg,sim1);
+errorestfpa= mymse(rtarg1,sim1);
 
 
